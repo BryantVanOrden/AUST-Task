@@ -1,0 +1,102 @@
+version: '3.8'
+
+services:
+  # ----- LDAP UI WITH NETWORKING FIX -----
+  ldap_admin_ui:
+    image: osixia/phpldapadmin:latest
+    container_name: ldap_admin_ui
+    hostname: ldap_admin_ui
+    restart: always
+    ports:
+      - "8090:80"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      PHPLDAPADMIN_LDAP_HOSTS: "host.docker.internal"
+      PHPLDAPADMIN_HTTPS: "false"
+    networks:
+      - app-network
+
+  # ----- REDASH STACK -----
+  postgres-redash:
+    image: postgres:9.6-alpine
+    container_name: redash_postgres
+    environment:
+      POSTGRES_PASSWORD: your_redash_pg_password
+    volumes:
+      - redash_postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:5.0-alpine
+    container_name: redash_redis
+    networks:
+      - app-network
+
+  redash-db-creator:
+    image: redash/redash:10.1.0.b50633
+    container_name: redash_db_creator
+    command: create_db
+    depends_on:
+      postgres-redash:
+        condition: service_healthy
+    environment:
+      PYTHONUNBUFFERED: 0
+      REDASH_LOG_LEVEL: "INFO"
+      REDASH_REDIS_URL: "redis://redis:6379/0"
+      REDASH_DATABASE_URL: "postgresql://postgres:your_redash_pg_password@postgres-redash/postgres"
+      REDASH_COOKIE_SECRET: "your_super_secret_redash_cookie_key"
+    networks:
+      - app-network
+
+  redash-server:
+    image: redash/redash:10.1.0.b50633
+    container_name: redash_service
+    command: server
+    restart: always
+    ports:
+      - "5001:5000"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      REDASH_LOG_LEVEL: "INFO"
+      REDASH_REDIS_URL: "redis://redis:6379/0"
+      REDASH_DATABASE_URL: "postgresql://postgres:your_redash_pg_password@postgres-redash/postgres"
+      REDASH_COOKIE_SECRET: "your_super_secret_redash_cookie_key"
+    networks:
+      - app-network
+    depends_on:
+      redash-db-creator:
+        condition: service_completed_successfully
+
+  ### ADD THIS WORKER SERVICE ###
+  redash-worker:
+    image: redash/redash:10.1.0.b50633
+    container_name: redash_worker
+    command: worker
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      REDASH_LOG_LEVEL: "INFO"
+      REDASH_REDIS_URL: "redis://redis:6379/0"
+      REDASH_DATABASE_URL: "postgresql://postgres:your_redash_pg_password@postgres-redash/postgres"
+      REDASH_COOKIE_SECRET: "your_super_secret_redash_cookie_key"
+    networks:
+      - app-network
+    depends_on:
+      - redis
+      - redash-server
+
+volumes:
+  redash_postgres_data:
+
+networks:
+  app-network:
+    driver: bridge

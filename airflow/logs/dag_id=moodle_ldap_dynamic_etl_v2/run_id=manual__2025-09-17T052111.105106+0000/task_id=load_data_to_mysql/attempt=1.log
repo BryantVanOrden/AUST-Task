@@ -1,0 +1,34 @@
+{"timestamp":"2025-09-17T05:21:13.336921","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-09-17T05:21:13.337274","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_ldap_sync_and_transform_generic.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-09-17T05:21:13.413954Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.414233Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.414917Z","level":"info","event":"Current task name:load_data_to_mysql","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.415110Z","level":"info","event":"Dag name:moodle_ldap_dynamic_etl_v2","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.415305Z","level":"info","event":"Loading data into AUST database...","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.416465","level":"warning","event":"/home/airflow/.local/lib/python3.12/site-packages/airflow/models/connection.py:471: DeprecationWarning: Using Connection.get_connection_from_secrets from `airflow.models` is deprecated.Please use `get` on Connection from sdk(`airflow.sdk.Connection`) instead\n  warnings.warn(\n","logger":"py.warnings"}
+{"timestamp":"2025-09-17T05:21:13.420049","level":"info","event":"Connection Retrieved 'mysql_default'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:21:13.427556","level":"info","event":"Running statement: CREATE DATABASE IF NOT EXISTS AUST;, parameters: None","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.429308","level":"info","event":"Rows affected: 1","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.432627","level":"info","event":"Running statement: CREATE TABLE IF NOT EXISTS AUST.ldap_users (dn VARCHAR(255) PRIMARY KEY, cn VARCHAR(255), sn VARCHAR(255), mail VARCHAR(255), uid VARCHAR(255), raw_attributes JSON, last_synced_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);, parameters: None","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.434126","level":"info","event":"Rows affected: 0","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.447551","level":"info","event":"Done loading. Loaded a total of 11 rows into AUST.ldap_users","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.447883Z","level":"info","event":"Loaded 11 records into AUST.ldap_users.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.450496","level":"info","event":"Running statement: CREATE TABLE IF NOT EXISTS AUST.moodle_users_raw (id BIGINT PRIMARY KEY, raw_data JSON, last_synced_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);, parameters: None","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.453380","level":"info","event":"Rows affected: 0","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.456788","level":"info","event":"Running statement: CREATE TABLE IF NOT EXISTS AUST.moodle_courses_raw (id BIGINT PRIMARY KEY, raw_data JSON, last_synced_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);, parameters: None","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.458154","level":"info","event":"Rows affected: 0","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.461822","level":"info","event":"Running statement: CREATE TABLE IF NOT EXISTS AUST.moodle_assignments_raw (id BIGINT PRIMARY KEY, raw_data JSON, last_synced_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);, parameters: None","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.463139","level":"info","event":"Rows affected: 0","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.466456","level":"info","event":"Running statement: CREATE TABLE IF NOT EXISTS AUST.moodle_submissions_raw (id BIGINT PRIMARY KEY, raw_data JSON, last_synced_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP);, parameters: None","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.467934","level":"info","event":"Rows affected: 0","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.481438","level":"info","event":"Done loading. Loaded a total of 13 rows into AUST.moodle_users_raw","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.481724Z","level":"info","event":"Loaded 13 raw records into AUST.moodle_users_raw.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.489808","level":"info","event":"Done loading. Loaded a total of 4 rows into AUST.moodle_courses_raw","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.490106Z","level":"info","event":"Loaded 4 raw records into AUST.moodle_courses_raw.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.496088","level":"info","event":"Done loading. Loaded a total of 1 rows into AUST.moodle_assignments_raw","logger":"airflow.task.hooks.airflow.providers.mysql.hooks.mysql.MySqlHook"}
+{"timestamp":"2025-09-17T05:21:13.496782Z","level":"info","event":"Loaded 1 raw records into AUST.moodle_assignments_raw.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.496963Z","level":"info","event":"Raw data loading complete.","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.496522","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.decorators.python._PythonDecoratedOperator"}
+{"timestamp":"2025-09-17T05:21:13.506278Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.511045Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:21:13.511227Z","level":"info","event":"Task operator:<Task(_PythonDecoratedOperator): load_data_to_mysql>","chan":"stdout","logger":"task"}

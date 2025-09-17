@@ -1,0 +1,60 @@
+{"timestamp":"2025-09-17T05:55:46.339858","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-09-17T05:55:46.340220","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_ldap_sync_and_transform_generic.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-09-17T05:55:46.407139Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:55:46.407419Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:55:46.407802Z","level":"info","event":"Current task name:extract_moodle_data","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:55:46.408012Z","level":"info","event":"Dag name:moodle_ldap_dynamic_etl_v2","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:55:46.409317","level":"warning","event":"/home/airflow/.local/lib/python3.12/site-packages/airflow/models/connection.py:471: DeprecationWarning: Using Connection.get_connection_from_secrets from `airflow.models` is deprecated.Please use `get` on Connection from sdk(`airflow.sdk.Connection`) instead\n  warnings.warn(\n","logger":"py.warnings"}
+{"timestamp":"2025-09-17T05:55:46.413232","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.413496Z","level":"info","event":"Extracting Moodle data...","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:55:46.416929","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.553891","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.611583","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.663927","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.708676","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.746455","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.784428Z","level":"info","event":"completion fetch failed for user 1 course 1: Moodle API Error for core_completion_get_activities_completion_status: The guest user is not allowed to do this","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:55:46.787913","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.815080Z","level":"info","event":"completion fetch failed for user 1 course 2: Moodle API Error for core_completion_get_activities_completion_status: The guest user is not allowed to do this","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:55:46.818345","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.845259Z","level":"info","event":"completion fetch failed for user 1 course 3: Moodle API Error for core_completion_get_activities_completion_status: The guest user is not allowed to do this","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:55:46.848677","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.876831Z","level":"info","event":"completion fetch failed for user 1 course 4: Moodle API Error for core_completion_get_activities_completion_status: The guest user is not allowed to do this","chan":"stdout","logger":"task"}
+{"timestamp":"2025-09-17T05:55:46.880870","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.915546","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:46.961709","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.008839","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.059076","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.099228","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.146492","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.168285","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.205789","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.250072","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.295001","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.324976","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.344647","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.385463","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.404700","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.448528","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.494464","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.541742","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.587988","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.634585","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.682214","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.728059","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.773294","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.818278","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.866036","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.911347","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:47.955859","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:48.001699","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:48.052749","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:48.093518","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:48.141086","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:48.188076","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:48.231182","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:48.278158","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:48.299128","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:55:48.335983","level":"info","event":"Connection Retrieved 'moodle_api'","logger":"airflow.hooks.base"}
+{"timestamp":"2025-09-17T05:57:15.317855Z","level":"error","event":"Server indicated the task shouldn't be running anymore. Terminating process","detail":{"detail":{"reason":"not_found","message":"Task Instance not found"}},"logger":"task"}
+{"timestamp":"2025-09-17T05:57:20.339460Z","level":"error","event":"Task killed!","logger":"task"}
