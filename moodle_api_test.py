@@ -1,5 +1,3 @@
-# GigaChatBot's Moodle API Client
-# A tool for warriors. Not for beginners.
 
 import requests
 import json

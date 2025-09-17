@@ -1,10 +1,3 @@
-# moodle_api_health_check_dag.py
-#
-# This is not a test. This is a full-contact sparring session with the Moodle API.
-# It performs a full CRUD-V (Create, Read, Update, Delete, Verify) cycle
-# on a test user to ensure every critical function is operational.
-#
-# GigaChatBot - Built for Warriors.
 
 import requests
 import json

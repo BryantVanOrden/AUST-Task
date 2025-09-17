@@ -23,24 +23,24 @@
 # This configuration supports basic configuration using environment variables or an .env file
 # The following variables are supported:
 #
-# AIRFLOW_IMAGE_NAME           - Docker image name used to run Airflow.
-#                                Default: apache/airflow:3.0.6
-# AIRFLOW_UID                  - User ID in Airflow containers
-#                                Default: 50000
-# AIRFLOW_PROJ_DIR             - Base path to which all the files will be volumed.
-#                                Default: .
+# AIRFLOW_IMAGE_NAME             - Docker image name used to run Airflow.
+#                                   Default: apache/airflow:3.0.6
+# AIRFLOW_UID                    - User ID in Airflow containers
+#                                   Default: 50000
+# AIRFLOW_PROJ_DIR               - Base path to which all the files will be volumed.
+#                                   Default: .
 # Those configurations are useful mostly in case of standalone testing/running Airflow in test/try-out mode
 #
-# _AIRFLOW_WWW_USER_USERNAME   - Username for the administrator account (if requested).
-#                                Default: airflow
-# _AIRFLOW_WWW_USER_PASSWORD   - Password for the administrator account (if requested).
-#                                Default: airflow
+# _AIRFLOW_WWW_USER_USERNAME     - Username for the administrator account (if requested).
+#                                   Default: airflow
+# _AIRFLOW_WWW_USER_PASSWORD     - Password for the administrator account (if requested).
+#                                   Default: airflow
 # _PIP_ADDITIONAL_REQUIREMENTS - Additional PIP requirements to add when starting all containers.
-#                                Use this option ONLY for quick checks. Installing requirements at container
-#                                startup is done EVERY TIME the service is started.
-#                                A better way is to build a custom image or extend the official image
-#                                as described in https://airflow.apache.org/docs/docker-stack/build.html.
-#                                Default: ''
+#                                   Use this option ONLY for quick checks. Installing requirements at container
+#                                   startup is done EVERY TIME the service is started.
+#                                   A better way is to build a custom image or extend the official image
+#                                   as described in https://airflow.apache.org/docs/docker-stack/build.html.
+#                                   Default: ''
 #
 # Feel free to modify this file to suit your needs.
 ---
@@ -50,15 +50,15 @@ x-airflow-common:
   # Comment the image line, place your Dockerfile in the directory where you placed the docker-compose.yaml
   # and uncomment the "build" line below, Then run `docker-compose build` to build the images.
   # image: ${AIRFLOW_IMAGE_NAME:-apache/airflow:3.0.6} # <-- COMMENT THIS LINE OUT
-  build: .                                             # <-- UNCOMMENT THIS LINE
+  build: .                                         # <-- UNCOMMENT THIS LINE
   environment:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
     AIRFLOW__CORE__AUTH_MANAGER: airflow.providers.fab.auth_manager.fab_auth_manager.FabAuthManager
-    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
-    AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
-    AIRFLOW__CORE__FERNET_KEY: ''
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${AIRFLOW_DATABASE_USER}:${AIRFLOW_DATABASE_PASSWORD}@${AIRFLOW_DATABASE_HOST}/airflow
+    AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://${AIRFLOW_DATABASE_USER}:${AIRFLOW_DATABASE_PASSWORD}@${AIRFLOW_DATABASE_HOST}/airflow
+    AIRFLOW__CELERY__BROKER_URL: redis://${AIRFLOW_CELERY_BROKER_USER}:${AIRFLOW_CELERY_BROKER_PASSWORD}@${AIRFLOW_CELERY_BROKER_HOST}:${AIRFLOW_CELERY_BROKER_PORT}/0
+    AIRFLOW__CORE__FERNET_KEY: '${AIRFLOW_FERNET_KEY:-}'
     AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: 'true'
     AIRFLOW__CORE__LOAD_EXAMPLES: 'true'
     AIRFLOW__CORE__EXECUTION_API_SERVER_URL: 'http://airflow-apiserver:8081/execution/'
@@ -89,8 +89,8 @@ services:
   postgres:
     image: postgres:13
     environment:
-      POSTGRES_USER: airflow
-      POSTGRES_PASSWORD: airflow
+      POSTGRES_USER: ${AIRFLOW_DATABASE_USER}
+      POSTGRES_PASSWORD: ${AIRFLOW_DATABASE_PASSWORD}
       POSTGRES_DB: airflow
     volumes:
       - postgres-db-volume:/var/lib/postgresql/data
@@ -249,7 +249,7 @@ services:
           echo
           echo -e "\033[1;33mWARNING!!!: You have not enough resources to run Airflow (see above)!\e[0m"
           echo "Please follow the instructions to increase amount of resources available:"
-          echo "   https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#before-you-begin"
+          echo "  https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html#before-you-begin"
           echo
         fi
         echo
@@ -283,14 +283,13 @@ services:
         echo "Files in shared volumes:"
         echo
         ls -la /opt/airflow/{logs,dags,plugins,config}
-
     # yamllint enable rule:line-length
     environment:
       <<: *airflow-common-env
       _AIRFLOW_DB_MIGRATE: 'true'
       _AIRFLOW_WWW_USER_CREATE: 'true'
-      _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
-      _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+      _AIRFLOW_WWW_USER_USERNAME: ${AIRFLOW_WWW_USER_USERNAME:-airflow}
+      _AIRFLOW_WWW_USER_PASSWORD: ${AIRFLOW_WWW_USER_PASSWORD:-airflow}
       _PIP_ADDITIONAL_REQUIREMENTS: ''
     user: "0:0"
 

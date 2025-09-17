@@ -1,4 +1,3 @@
-# GigaChatBot's Intelligence Sync DAG (FINAL VERSION)
 
 import json
 from datetime import datetime

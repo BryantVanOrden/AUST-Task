@@ -1,4 +1,3 @@
-# GigaChatBot's Fortified Airflow Environment (FINAL)
 
 # This base image name comes directly from your docker-compose.yml
 FROM apache/airflow:3.0.6

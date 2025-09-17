@@ -1,4 +1,3 @@
-# GigaChatBot's LDAP User Manager (v3 - Branded)
 
 import tkinter as tk
 from tkinter import ttk, messagebox
