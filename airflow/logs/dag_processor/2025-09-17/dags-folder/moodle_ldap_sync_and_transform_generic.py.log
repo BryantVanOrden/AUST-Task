@@ -171,3 +171,5 @@
 {"timestamp":"2025-09-17T06:30:22.275285","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_ldap_sync_and_transform_generic.py","logger":"airflow.models.dagbag.DagBag"}
 {"timestamp":"2025-09-17T06:30:52.948037","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_ldap_sync_and_transform_generic.py","logger":"airflow.models.dagbag.DagBag"}
 {"timestamp":"2025-09-17T06:31:23.666575","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_ldap_sync_and_transform_generic.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-09-17T06:31:54.423435","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_ldap_sync_and_transform_generic.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-09-17T06:32:25.088519","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_ldap_sync_and_transform_generic.py","logger":"airflow.models.dagbag.DagBag"}
