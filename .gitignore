@@ -3,3 +3,5 @@
 
 # Ignore all .env files
 *.env
+
+airflow/logs/*

@@ -1913,3 +1913,6 @@
 {"timestamp":"2025-09-17T21:20:59.584598","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_test_dag.py","logger":"airflow.models.dagbag.DagBag"}
 {"timestamp":"2025-09-17T21:21:30.511509","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_test_dag.py","logger":"airflow.models.dagbag.DagBag"}
 {"timestamp":"2025-09-17T21:22:01.421135","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_test_dag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-09-17T21:22:32.389477","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_test_dag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-09-17T21:23:02.564227","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_test_dag.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-09-17T21:23:33.285247","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/moodle_test_dag.py","logger":"airflow.models.dagbag.DagBag"}
