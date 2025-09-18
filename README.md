@@ -6,7 +6,7 @@ This suite provides a complete data integration and user management solution for
 
 The primary functions are:
 * **Data Synchronization:** An Airflow DAG (`aust_data_sync_dag.py`) performs an ETL process, extracting comprehensive data from Moodle (users, courses, assignments, submissions) and loads it into a dedicated `AUST` MySQL database, ready for BI dashboards and analysis.
-* **User Provisioning:** A second Airflow DAG (`aust_user_provisioning_dag.py`) synchronizes users from OpenLDAP to Moodle, automatically creating, updating, or deleting Moodle accounts to reflect the state of the LDAP directory.
+* **User Provisioning:** A second Airflow DAG (`ldap_to_moodle_user_provisioning_dag.py`) synchronizes users from OpenLDAP to Moodle, automatically creating, updating, or deleting Moodle accounts to reflect the state of the LDAP directory.
 * **User Management:** A standalone Python Tkinter UI (`ldap_manager.py`) provides a simple, efficient tool for administrators to add new users directly to the OpenLDAP directory.
 
 ---
